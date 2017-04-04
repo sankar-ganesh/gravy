@@ -1,15 +1,20 @@
 /*
- *  spinner - Class returns a singleton object
+ *  SpinnerClass - Class
  *
+ *  getInstance - returns the singleton Object
  *  spin - Runs `await` in a loop, spans multiple thread
  *  exec - Returns promise for every thread
  *  run  - Executes the thread
  */
 
- var spinner = (function() {
+ var SpinnerClass = (function() {
    var instance;
 
    function Spinner() {
+     if (instance) {
+       return instance;
+     }
+     instance = this;
    };
 
    Spinner.prototype.exec = function() {
@@ -33,16 +38,12 @@
      console.log(`Executing Thread ${val}`);
    };
 
-   return {
-     getInstance: function() {
-       if (!instance) {
-         instance = new Spinner();
-         instance.constructor = null;
-       }
-       return instance;
-     }
+   Spinner.prototype.getInstance = function() {
+     return instance || new Spinner();
    }
+
+   return Spinner;
  })();
 
- var spinnerObj = spinner.getInstance();
- spinnerObj.spin();
+ var spinner = new SpinnerClass();
+ spinner.spin();
