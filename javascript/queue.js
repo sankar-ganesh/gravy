@@ -10,7 +10,7 @@ var queue = (function() {
 
   return {
     enque: function(key, listener) {
-      if (typeof queue[key] === 'undefined') {
+      if (queue[key] === void 0) {
         queue[key] = [];
       }
 
@@ -20,7 +20,7 @@ var queue = (function() {
     deque: function(key) {
       let q = queue[key];
 
-      if (typeof q === 'undefined') {
+      if (q === void 0) {
         return;
       }
 
@@ -33,4 +33,4 @@ var queue = (function() {
       }
     }
   }
-})();
+}());
