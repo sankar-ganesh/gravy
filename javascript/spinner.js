@@ -26,9 +26,8 @@
    };
 
    Spinner.prototype.spin = function() {
-     var that = this;
      [1, 2, 3, 4, 5].forEach((val) => {
-       that.run(val);
+       this.run(val);
        console.log(`Calling Thread ${val}`);
      });
    };

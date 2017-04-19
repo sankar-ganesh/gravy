@@ -1,3 +1,7 @@
+/*
+ *  undefined is just an arbitrary identifier. Safer to use void 0
+ */
+
 const isDefined = (function() {
   const undefined = 1;
   return function(x) {
