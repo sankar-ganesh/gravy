@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Prefetch HTML</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="preload.js"></script>
+  </head>
+  <body>
+    <h1>Load Resources</h1>
+
+    <div>
+      <a href="deer.jpeg">Deer JPEG</a>
+      <a href="parrot.jpeg">Parrot JPEG</a>
+      <a href="tree.jpeg">Tree JPEG</a>
+    </div>
+
+    <input type="button" value="reset" onclick="preload.deregister()"></input>
+  </body>
+</html>
