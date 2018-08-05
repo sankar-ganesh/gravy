@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FSM HTML</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="state.js"></script>
+    <script type="text/javascript" src="transition.js"></script>
+    <script type="text/javascript" src="lifecycle.js"></script>
+    <script type="text/javascript" src="fsm.js"></script>
+  </head>
+  <body>
+  	<h2>Fininte State Machine</h2>
+  	<script>
+  		var fsmWalk = new StateMachine({
+  			state: new StateClass("A"),
+  			states: [
+  				new StateClass("A"),
+  				new StateClass("B"),
+  				new StateClass("C"),
+  				new StateClass("D"),
+  			],
+  			transitions: [
+  				new TransitionClass({
+  					name: "Step",
+  					from: ["A"],
+  					to: "B"
+  				}),
+  				new TransitionClass({
+  					name: "Step",
+  					from: ["B"],
+  					to: "C"
+  				}),
+  				new TransitionClass({
+  					name: "Step",
+  					from: ["C"],
+  					to: "D"
+  				}),
+  				new TransitionClass({
+  					name: "Reset",
+  					from: ["B", "C"],
+  					to: "A"
+  				}),
+  				new TransitionClass({
+  					name: "Reset",
+  					from: ["D"],
+  					to: "B"
+  				})
+  			],
+  			methods: {
+		      onStep:     function() { console.log('I stepped')    },
+		      onReset:    function() { console.log('I got reset')  }
+		    }
+  		});
+  	</script>
+
+    <img src="state_graph.png" width="600px" height="300px"/>
+  </body>
+</html>
