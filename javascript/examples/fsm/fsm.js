@@ -35,10 +35,13 @@ var StateMachine = (function() {
 				let methods = this.lifeCycle.methods();
 
 				this.lifeCycle.transitions().forEach(transition => {
-					let name = transition.name;
+					let name = transition && transition.name;
 
 					// Add Transition Methods
-					this[name] = this.lifeCycle.spin(transition);
+					this.lifeCycle.spin(transition);
+					if (!this[name] || !this.hasOwnProperty(name)) {
+						this[name] = (payload) => this.lifeCycle.run(name, payload);
+					}
 
 					// Add Transition Observers
 					if (methods.hasOwnProperty(`on${name}`)) {

@@ -68,11 +68,10 @@ var LifeCycleClass = (function() {
 
 	LifeCycle.prototype.spin = function(transition) {
 		let name = transition && transition.name;
-		if (!this[name]) {
+		if (!this[name] || !this.hasOwnProperty(name)) {
 			this[name] = [];
 		}
 		this[name].push(transition);
-		return (payload) => this.run(name, payload);
 	};
 
 	LifeCycle.prototype.run = function(nameOfTransition, payload) {
