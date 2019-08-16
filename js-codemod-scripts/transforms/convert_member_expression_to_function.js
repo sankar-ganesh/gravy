@@ -1,7 +1,7 @@
 /*
- * @description 										Convert Member Expression To Function in the given input file
- * @param {Object} fileInfo 				Input Source File
- * @param {Object} api							Input Code Shift API File
+ * @description : Convert Member Expression To Function in the given input file
+ * @param {Object} fileInfo : Input Source File
+ * @param {Object} api : Input Code Shift API File
  */
 module.exports = (fileInfo, api) => {
 	const j = api.jscodeshift;
@@ -11,10 +11,10 @@ module.exports = (fileInfo, api) => {
 	const ARGUMENTS = 'Constants';
 
 	/*
-	 * @method 												ConvertMemberExpressionToFunction
-	 * @description 									Convert Member Expression To Function
-	 * @param {Object} path 					Input Path Node
-	 * @return {Object} replacedNode	Replaced Path Node
+	 * @method : ConvertMemberExpressionToFunction
+	 * @description : Convert Member Expression To Function
+	 * @param {Object} path : Input Path Node
+	 * @return {Object} replacedNode : Replaced Path Node
 	 */
 	const ConvertMemberExpressionToFunction = path => {
 		let pathName = '',
